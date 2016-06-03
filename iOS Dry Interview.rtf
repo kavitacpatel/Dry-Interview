@@ -1,0 +1,102 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue255;\red255\green255\blue255;
+\red62\green62\blue62;\red21\green163\blue221;\red62\green62\blue62;\red247\green238\blue241;\red184\green14\blue61;
+}
+\margl1440\margr1440\vieww28600\viewh15140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf2 \
+\
+\pard\pardeftab720\sl510\partightenfactor0
+
+\b\fs30 \cf3 \cb4 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec5 Question 1
+\b0  - What have you learned recently about iOS development? How did you learn it? Has it changed your approach to building apps?\cf2 \
+I find that Swift is very powerful language in coding and designing. I am doing best practices making new application while adding new features.I learn more about Cocoa pods, Xib files, Protocols and Delegates, How to reuse the code. I am more prepared to solve complex applications. With Github I can be more organized with application versions. All of this help me to to become successful developer.\
+\
+
+\b \cf3 Question 2
+\b0  - Can you talk about a framework that you've used recently (Apple or third-party)? What did you like/dislike about the framework?\
+\pard\pardeftab720\sl510\partightenfactor0
+\cf2 Recently I have used Firebase framework, Now they have added awesome authentication APIs of Twitter, Github with Facebook. I really liked it not using different frameworks for login authentication.I really like that same method of handling authentication can be used for more than Facebook, Github, Twitter and even anonymous users.\
+\cf3  \cf2 \
+\pard\pardeftab720\sl510\partightenfactor0
+
+\b \cf2 Question 3
+\b0  - \cf3 Describe how you would construct a Twitter feed application {\field{\*\fldinst{HYPERLINK "https://www.udacity.com/api/nodes/5391950389/supplemental_media/exampletwitterfeedpng/download"}}{\fldrslt 
+\b \strokec6 (here is an example of Udacity's Twitter feed)}} that at minimum can display a company's Twitter page. Please include information about any classes/structs that you would use in the app. Which classes/structs would be the model(s), the controller(s), and the view(s)?\
+\pard\pardeftab720\sl510\partightenfactor0
+\cf2 First I like to break the app in MVC architecture.\
+Controllers\
+	LoginController\
+	TwitterFeedController( Table view)\
+Model\
+	TwitterClass(Manage Login)\
+	TwitterFeedClass(Manage Posts)\
+Views\
+	TwitterFeedCells ( userName, \cf0 \cb1 \outl0\strokewidth0 date ,\cf2 \cb4 \outl0\strokewidth0 \strokec5 Title Text, Summary Text, Image, Like Button, Settings)	\
+From MVC it is easy to get idea about core data and structure or classes.\
+Class Twitter\
+\{\
+  var likes: Int\
+  var postTitle: String\
+  var post summary: String\
+ var postDate: NSDate\
+var postImage: UIImage\
+\
+// Authenticate user using Twitter API or Firebase API\
+\}\
+Class TwitterFeed\
+\{\
+// save the Post in Firebase\
+\}\
+User Interface\
+\pard\pardeftab720\sl510\partightenfactor0
+\cf0 \cb1 \outl0\strokewidth0 // Allow user to enter Post title,Add summary, Add picture, Likes\
+// Allow user to select image from Photo Album or from Camera - if Camera device is not supported than camera will be disabled\cf2 \cb4 \outl0\strokewidth0 \strokec5 \
+\pard\pardeftab720\sl510\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl510\partightenfactor0
+
+\b \cf3 Question 4
+\b0  - Describe some techniques that can be used to ensure that a 
+\f1 \cb8 \strokec9 UITableView
+\f0 \cb4 \strokec5 containing many 
+\f1 \cb8 \strokec9 UITableViewCell
+\f0 \cb4 \strokec5  is displayed at 60 frames per second.\
+\pard\pardeftab720\sl510\partightenfactor0
+\cf2 When we can not bind data before CellForRowAtIndexpath because cell has to return as quick as possible.Instead of binding data to all tableview cells, Data binding to cell method should be call exactly before showing the cell. Performance can be better using drawRect method with CoreGraphics.It can handle complex graphical computations.\
+\
+\pard\pardeftab720\sl510\partightenfactor0
+
+\b \cf3 Question 5
+\b0  - Imagine that you have been given a project that has this {\field{\*\fldinst{HYPERLINK "https://www.udacity.com/api/nodes/5391950389/supplemental_media/actorviewcontrollerswift/download"}}{\fldrslt 
+\b \strokec6 ActorViewController}}. The
+\f1 \cb8 \strokec9 ActorViewController
+\f0 \cb4 \strokec5  should be used to display information about an actor. However, to send information to other ViewControllers, it uses NSUserDefaults. Does this make sense to you? How would you send information from one ViewController to another one?\
+\pard\pardeftab720\sl510\partightenfactor0
+\cf2  We can send information making object of View controller in PerformSegue Method and pass values or we can create SharedInstance Object.\
+\
+\pard\pardeftab720\sl510\partightenfactor0
+
+\b \cf3 Question 6
+\b0  - Imagine that you have been given a project that has this {\field{\*\fldinst{HYPERLINK "https://www.udacity.com/api/nodes/5391950389/supplemental_media/githubprojectviewcontrollerswift/download"}}{\fldrslt 
+\b \strokec6 GithubProjectViewController}}. The 
+\f1 \cb8 \strokec9 GithubProjectViewController
+\f0 \cb4 \strokec5  should be used to display high-level information about a GitHub project. However, it\'92s also responsible for finding out if there\'92s network connectivity, connecting to GitHub, parsing the responses and persisting information to disk. It is also one of the biggest classes in the project.\
+How might you improve the design of this view controller?\
+\
+\pard\pardeftab720\sl510\partightenfactor0
+\cf2 I would break it in 2 different classes.\
+in View controller class i keep only  UI related codes not NS\
+1) GithubClass- managed data for persistent- add remove or edit\
+2) GithubAPI- manage Api connection ,parsing, network connectivity\
+\
+\pard\pardeftab720\sl510\partightenfactor0
+
+\b \cf3 Question 7
+\b0  - If you were to start your iOS developer position today, what would be your goals a year from now?\
+\pard\pardeftab720\sl510\partightenfactor0
+\cf2 If I get this position than I want to grow personal and professional within this company. I keep doing my work along with learning new stuff. I will take my passion of developing to another level.\
+}
