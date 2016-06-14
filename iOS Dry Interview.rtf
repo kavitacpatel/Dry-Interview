@@ -1,9 +1,10 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 ArialMT;\f2\fnil\fcharset0 Monaco;
-\f3\fnil\fcharset0 Georgia;}
-{\colortbl;\red255\green255\blue255;\red0\green0\blue255;\red0\green0\blue0;\red50\green50\blue50;
-\red247\green238\blue241;\red27\green29\blue31;\red14\green14\blue14;}
-\margl1440\margr1440\vieww28060\viewh5140\viewkind0
+\f3\fnil\fcharset0 HelveticaNeue;\f4\fnil\fcharset0 Georgia;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue255;\red50\green50\blue50;\red247\green238\blue241;
+\red27\green29\blue31;\red0\green0\blue0;\red255\green255\blue255;\red109\green109\blue109;\red14\green14\blue14;
+}
+\margl1440\margr1440\vieww28060\viewh8680\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 \
@@ -14,8 +15,8 @@
 Question 1
 \b0  - What have you learned recently about iOS development? How did you learn it? Has it changed your approach to building apps?\cf0 \
 Recently I have worked on App Extension.I am working on Custom Keyboard, which replace the system keyboard.
-\fs28 \cf3 After a user chooses a custom keyboard, it becomes the keyboard for every app the user opens.\cf4  
-\fs30 \cf0 Apple has already taken care of Emoji, I am making it a part of my custom keyboard and with additional feature of short cuts to favorite apps for fast access. I am allowing user to add and edit favorite applications on keyboard. So he doesn\'92t have to close current application and go to other application. The functionality is same as default keyboard by responding taps.It\'92s fast, responsive and capable. And it never interrupts the user with information and requests. Only disadvantage is we wouldn\'92t be able to access microphone features or other APIs. I have been following blogs and online tutorial like 
+\fs28 After a user chooses a custom keyboard, it becomes the keyboard for every app the user opens.\cf3  
+\fs30 \cf0 Apple has taken care of Emoji, QuickType and Text to Speech. If I am in Message App and I realize to send thru Facebook, I have to close message, open Facebook, find contact than send message. So I thought if User can have favorite emojis, favorite contacts than we can add favorite apps to keyboard. I am making custom keyboard and with additional feature of short cuts to favorite apps for fast access. I am allowing user to add and edit favorite applications on keyboard setting. By pressing setting key, user will see table view of favorite apps list and by pressing edit button he can remove app from the list. The functionality is same as default keyboard by responding taps.It\'92s fast, responsive and capable. And it never interrupts the user with information and requests. Only disadvantage is we wouldn\'92t be able to access microphone features or other APIs. I have been following blogs and online tutorial like 
 \f1\b\fs28 swiftdeveloperblog.com, natashatherobot.com, Udacity.
 \f0\b0\fs30  Doing more practices making new application while adding new features. Comparing iOS with Objective c, iOS is much easier, convenient and reliable when it comes to reusing data, error handling and coding. Even if you don\'92t have background in iOS you can learn from online tutorial or documentation.\
 \
@@ -64,9 +65,9 @@ From MVC it is easy to get idea about core data and structure or classes. To mai
 
 \b \cf2 Question 4
 \b0  - Describe some techniques that can be used to ensure that a 
-\f2 \cb5 UITableView
+\f2 \cb4 UITableView
 \f0 \cb1 containing many 
-\f2 \cb5 UITableViewCell
+\f2 \cb4 UITableViewCell
 \f0 \cb1  is displayed at 60 frames per second.\
 \cf0 A table view uses cell object to draw its rows visible.cell object is reusable with identifier( dequeueReusableCellWithIdentifier). Tableview asks data source to configure a cell object to display data in cell.At runtime the data source dequeues cells, prepares them and gives them to its table view for drawing the rows. We can not bind data before CellForRowAtIndexpath because cell has to return as quick as possible.Instead of binding data to all tableview cells, Data binding to cell method should be call exactly before showing the cell. \
 \
@@ -74,11 +75,11 @@ From MVC it is easy to get idea about core data and structure or classes. To mai
 \b \cf2 Question 5
 \b0  - Imagine that you have been given a project that has this {\field{\*\fldinst{HYPERLINK "https://www.udacity.com/api/nodes/5391950389/supplemental_media/actorviewcontrollerswift/download"}}{\fldrslt 
 \b ActorViewController}}. The
-\f2 \cb5 ActorViewController
+\f2 \cb4 ActorViewController
 \f0 \cb1  should be used to display information about an actor. However, to send information to other ViewControllers, it uses NSUserDefaults. Does this make sense to you? How would you send information from one ViewController to another one?\
 \pard\pardeftab720\sl510\partightenfactor0
 
-\f1 \cf6 NSUserDefault is used for passing information to keep your data live as long as the app is installed, once the app is removed this will reset automatically for example user parameters so when user opens app, he finds same parameters.There are two other ways to pass values like Segue and Singleton
+\f1 \cf5 NSUserDefault is used for passing information to keep your data live as long as the app is installed, once the app is removed this will reset automatically for example user parameters so when user opens app, he finds same parameters.There are two other ways to pass values like Segue and Singleton
 \f0 \cf0 .We can send information making object of View controller in prepareForSegue Method and pass values.Or We can save Actor\'92s information in Structure or Class and use with Singleton. Singleton is basically global object to access variable or function, you have to be very careful when you are mentioning MVC architecture. Thats why I would prefer to use PrepareForSegue, it\'92s a good cause to pass information to another controller.\
 \
 \pard\pardeftab720\sl510\partightenfactor0
@@ -86,7 +87,7 @@ From MVC it is easy to get idea about core data and structure or classes. To mai
 \b \cf2 Question 6
 \b0  - Imagine that you have been given a project that has this {\field{\*\fldinst{HYPERLINK "https://www.udacity.com/api/nodes/5391950389/supplemental_media/githubprojectviewcontrollerswift/download"}}{\fldrslt 
 \b GithubProjectViewController}}. The 
-\f2 \cb5 GithubProjectViewController
+\f2 \cb4 GithubProjectViewController
 \f0 \cb1  should be used to display high-level information about a GitHub project. However, it\'92s also responsible for finding out if there\'92s network connectivity, connecting to GitHub, parsing the responses and persisting information to disk. It is also one of the biggest classes in the project.\
 How might you improve the design of this view controller?\
 \cf0 For network aspect it would be better to make a separate class to handle network errors and reusability throw out application. Like wise for data handling we need separate class or structure that can be used for persistent information.When you have large amount of code in same class than it is very difficult to understand the logic plus hard to handle any error.\
@@ -98,9 +99,22 @@ in View controller class i keep only  UI related codes not NS\
 
 \b \cf2 Question 7
 \b0  - If you were to start your iOS developer position today, what would be your goals a year from now?\
+\
+Job Description: \
+
+\f3\b\fs26 \cf6 \outl0\strokewidth0 \strokec6 Job Description
+\b0 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat7 \trwWidth17040\trftsWidth3 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clshdrawnil \clwWidth16732\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrs\brdrw26\brdrcf6 \clbrdrb\brdrs\brdrw26\brdrcf6 \clbrdrr\brdrs\brdrw26\brdrcf6 \clpadl144 \clpadr144 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf6 \'b7 At least 5 -7 years of experience in technology consulting, enterprise and solutions architecture and architectural frameworks\uc0\u8232 \'b7 At least 4 years of experience in native iOS user interface development skills, bug fixing and improving application performance, proficient with Swift (Primary), Objective C, Swift, experience with iOS frameworks like Core Data, Core Animation etc., good understanding of Apple\'92s design principles and user interface guidelines, understanding of code versioning tools, offline storage, threading etc.\u8232 \'b7 Experience working with building enterprise grade mobile applications with multiple integration touch points. \u8232 \'b7 Understanding of various authentication processes/frameworks\u8232 \'b7 Good communication and mentoring skills\cell \lastrow\row
+\pard\pardeftab720\sl510\partightenfactor0
+
+\f0\fs30 \cf2 \outl0\strokewidth0 \
 \pard\pardeftab720\sl560\partightenfactor0
-\cf7 I am driven to be the best at what I do and I want to work somewhere where I will have opportunities to develop my skills, take on interesting projects,take on new challenges over time and work with people I can really learn from. Some of the most innovative thinkers in the industry work here and that\'92s a big reason why I would love to build a career here.My short term goal is
-\f3\i  
+\cf9 I am driven to be the best at what I do and I want to work somewhere where I will have opportunities to develop my skills, take on interesting projects,take on new challenges over time and work with people I can really learn from. Some of the most innovative thinkers in the industry work here and that\'92s a big reason why I would love to build a career here.My short term goal is
+\f4\i  
 \f0\i0 \cf0 If I start this position today than I want to grow personally and professionally within this company.In a year I want to see my self improving with knowledge, skills and ability to handle complex projects. In a long term goal, I see my self as Project Leader, leading my team to new innovations and growth. I have a desire to develop my skills as a manager.I am sure with leadership role responsibilities will come like staffing, supporting and training team, allocating tasks and ensuring about time lines and standards of projects have met. I know It\'92s easy to make goal but achieving them isn\'92t. But i am sure I will eventually get there.\
 \pard\pardeftab720\sl510\partightenfactor0
 \cf0 \
